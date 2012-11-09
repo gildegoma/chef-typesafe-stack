@@ -51,7 +51,7 @@ Contribution and Credits
 ========================
 
 * Project Home: https://github.com/gildegoma/chef-typesafe-stack
-* How to contribute: *Feel free to open issues, fork repo and send pull request!*
+* How to contribute: *Feel free to open issues, fork repo and send pull request (based on a custom branch, not master)!*
 
 Before starting to create this cookbook, I first looked for existing ones, but I did not find exactly what I wished. 
 The creation of this cookbook was nevertheless influenced by following similar recipes:
