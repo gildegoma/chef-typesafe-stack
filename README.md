@@ -40,13 +40,16 @@ Version 0.1.0 has been validated on Ubuntu 12.10 64-bit (for apt)  and on CentOS
 Known Problems
 ==============
 
-* [#3](https://github.com/gildegoma/chef-typesafe-stack/issues/3): `sbt` runs by default with following JVM memory parameters `-Xms1536m -Xmx1536m -XX:MaxPermSize=384`. You should expect following error with target host with less than 2048M of RAM:
+* [#3](https://github.com/gildegoma/chef-typesafe-stack/issues/3): `sbt` runs by default with following JVM memory parameters `-Xms1536m -Xmx1536m -XX:MaxPermSize=384`. 
+ * **workaround:** override JVM memory parameters with `-mem` option (e.g. `sbt -mem 512 ...`)
+ * You should expect following error with target host with less than 2048M of RAM:
 
 ```
 Error occurred during initialization of VM
 Could not reserve enough space for object heap
 ```
 
+ 
 Contribution and Credits
 ========================
 
