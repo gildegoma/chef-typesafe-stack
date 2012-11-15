@@ -5,22 +5,26 @@ Description
 
 The **default** recipe of this Chef cookbook will
 
- * Configure the APT or YUM repository provided by TypeSafe company
- * Install the meta-package **typesafe-stack** that includes [sbt](https://github.com/harrah/xsbt) and [giter8](https://github.com/n8han/giter8).
+  * Configure the APT or YUM repository provided by TypeSafe company
+  * Install the meta-package **typesafe-stack** that includes [sbt](https://github.com/harrah/xsbt) and [giter8](https://github.com/n8han/giter8).
+
+### Notes:
+
   * Akka and Play are not installed, since TypeSafe recommends to create project on top of these frameworks with giter8 templates available in [@typesafehub](https://github.com/typesafehub) **.g8-suffixed** repositories, like for instance https://github.com/typesafehub/akka-scala-sbt.g8
-  * TypeSafe bundles an adapted version of very nice [sbt-extras](https://github.com/paulp/sbt-extras#readme), *that will figure out the versions of sbt and scala required by the project and download them if necessary.* 
-
-**Notes:**
-
- * On Debian/APT-based platorm, the repository public key is installed in a more "usual way" compared to [Debian/Ubuntu installation guidelines](http://typesafe.com/stack/download) from TypeSafe. (I expect that TypeSafe will in near future make its apt-repo public key available for usual HTTP download... and drop the manual installation-step of repo-deb-build-0002.deb package)
+  * TypeSafe bundles an **adapted version of very nice [sbt-extras](https://github.com/paulp/sbt-extras#readme)**. 
+    * Genuine sbt-extras *will figure out the versions of sbt and scala required by the project and download them if necessary.* 
+    * *BUT* [typesafe fork](https://github.com/sbt/sbt-launcher-package) disabled the auto-download feature...
+    * If you want to install multi-sbt tool ready out of the box, try https://github.com/gildegoma/chef-sbt-extras instead.
+  * On Debian/APT-based platorm, the repository public key is installed in a more "usual way" compared to [Debian/Ubuntu installation guidelines](http://typesafe.com/stack/download) from TypeSafe. (I expect that TypeSafe will in near future make its apt-repo public key available for usual HTTP download... and drop the manual installation-step of repo-deb-build-0002.deb package)
 
 Requirements
 ============
 
-* Depends on **[opscode/apt cookbook](https://github.com/opscode-cookbooks/apt) >= 1.4.0+** because of [COOK-921](https://github.com/opscode/cookbooks/pull/282) (the apt-repository public key file is bundled in cookbook, not HTTP-fetched from a remote server)
-* Depends on **opscode/yum cookbook**
-* Depends on **opscode/java cookbook**
+* Depends on **[apt](https://github.com/opscode-cookbooks/apt) >= 1.4.0+** because of [COOK-921](https://github.com/opscode/cookbooks/pull/282) (the apt-repository public key file is bundled in cookbook, not HTTP-fetched from a remote server)
+* Depends on **[yum](https://github.com/opscode-cookbooks/yum)**
+* Depends on **[java](https://github.com/opscode-cookbooks/java)**
 * **Attention:** Integration with opscode-apt cookbook 1.4.8+ requires at least Chef 10.10+ because of [COOK-1435](https://github.com/opscode-cookbooks/apt/commit/4c8d03f6afc22eca0b1ffb7389e61aec9a16666b).
+* Conflicts with **[chef-sbt-extras](https://github.com/gildegoma/chef-sbt-extras)**
 
 Attributes
 ==========
