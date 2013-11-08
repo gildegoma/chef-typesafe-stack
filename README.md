@@ -1,3 +1,10 @@
+Deprecated!
+===========
+
+In 2012, *Typesafe Stack* was the former professional bundle provided by http://typesafe.com. 
+After the introduction of **Typesafe Activator** in 2013, these APT and YUM repositories were no longer updated. 
+For this reason, I stop using this cookbook and deprecate it in favor to https://github.com/gildegoma/chef-sbt-extras.
+
 Description
 ===========
 
